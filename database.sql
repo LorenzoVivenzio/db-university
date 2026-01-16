@@ -48,3 +48,24 @@ FROM `departments`
 SELECT COUNT(*)
 FROM `teachers`
 WHERE `phone` IS NULL
+
+
+
+-- GROUP BY
+--  Contare quanti iscritti ci sono stati ogni anno
+SELECT YEAR(`enrolment_date`), COUNT(id)
+FROM `students`
+GROUP BY YEAR (`enrolment_date`)
+
+
+
+-- Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+SELECT `office_address`,COUNT(id)
+FROM `teachers`
+GROUP BY `office_address`
+
+
+-- Contare quanti corsi di laurea ci sono per ogni dipartimento
+SELECT `department_id`, COUNT(id)
+FROM `degrees`
+GROUP BY `department_id`
